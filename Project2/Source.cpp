@@ -1,4 +1,3 @@
-
 #include <iostream>
 using namespace std;
 
@@ -11,32 +10,26 @@ public:
 
 int main()
 {
-	node head;
+	node head ;
 	head.data = 5;
-	cout << head.data << endl;
 
 	node two;
 	two.data = 6;
-	cout << two.data << endl;
 
 	head.ref = &two;
 
 	node three;
 	three.data = 7;
-	cout << three.data << endl;
 
 	two.ref = &three;
 
-	head.ref = &three;
+	three.ref = NULL;
 
-	head.ref = &two;
-
-	two.ref = &three;
 	system("pause");
 	return 0;
 }
 
-/*void addFunc(node head)
+void addFunc(node head)
 {
 	node current = head;
 	current.data++;
@@ -45,4 +38,15 @@ int main()
 		current.data++;
 	}
 
-}*/
+}
+void Print(node head)
+{
+	node current = head;
+	int i = 1;
+	cout << "node 1: data = " << current.data << endl;
+	while (current.ref != NULL)
+	{
+		i++;
+		current = current.ref;
+		cout << "node " << i << ": data = " << current.data << endl;
+}
