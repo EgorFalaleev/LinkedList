@@ -49,4 +49,6 @@ void Print(node head)
 		i++;
 		current = current.ref;
 		cout << "node " << i << ": data = " << current.data << endl;
+	}
+	cout << "end of list";
 }
