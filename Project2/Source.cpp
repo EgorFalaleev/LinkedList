@@ -33,22 +33,16 @@ void addFunc(node head)
 {
 	node current = head;
 	current.data++;
-	while (current.ref != NULL) {
-		current = current.ref;
-		current.data++;
-	}
-
+	do {current = current.ref; current.data++;}
+	while (current.ref != NULL);
 }
+
 void Print(node head)
 {
 	node current = head;
 	int i = 1;
 	cout << "node 1: data = " << current.data << endl;
-	while (current.ref != NULL)
-	{
-		i++;
-		current = current.ref;
-		cout << "node " << i << ": data = " << current.data << endl;
-	}
+	do { i++; current = current.ref; cout << "node " << i << ": data = " << current.data << endl; }
+	while (current.ref != NULL);
 	cout << "end of list";
 }
