@@ -10,39 +10,43 @@ public:
 
 int main()
 {
-	node head ;
-	head.data = 5;
+	node* head = new node;
+	head->data = 5;
 
-	node two;
-	two.data = 6;
+	node* two = new node;
+	two->data = 6;
 
-	head.ref = &two;
+	head->ref = two;
 
-	node three;
-	three.data = 7;
+	node* three = new node;
+	three->data = 7;
 
-	two.ref = &three;
+	two->ref = three;
 
-	three.ref = NULL;
-
+	three->ref = NULL;
+	
 	system("pause");
 	return 0;
 }
 
-void addFunc(node head)
+void addFunc(node* head)
 {
-	node current = head;
-	current.data++;
-	do {current = current.ref; current.data++;}
-	while (current.ref != NULL);
+	node* current = new node;
+	current = head;
+	current->data++;
+	cout << current->data;
+	do {current = current->ref; current->data++;}
+	while (current->ref != NULL);
 }
 
-void Print(node head)
+void Print(node* head)
 {
-	node current = head;
+	node* current = new node;
+	current = head;
+	//node* current = head;
 	int i = 1;
-	cout << "node 1: data = " << current.data << endl;
-	do { i++; current = current.ref; cout << "node " << i << ": data = " << current.data << endl; }
-	while (current.ref != NULL);
+	cout << "node 1: data = " << current->data << endl;
+	do { i++; current = current->ref; cout << "node " << i << ": data = " << current->data << endl; }
+	while (current->ref != NULL);
 	cout << "end of list";
 }
