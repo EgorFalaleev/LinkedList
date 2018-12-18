@@ -9,7 +9,7 @@ public:
 };
 
 void Print(node* head);
-void addFunc(node* head);
+void IncrementAll(node* head);
 
 int main()
 {
@@ -29,16 +29,15 @@ int main()
 	three->ref = NULL;
 	
 	Print(head);
-	addFunc(head);
+	IncrementAll(head);
 	Print(head);
 
 	system("pause");
 	return 0;
 }
 
-void addFunc(node* head)
+void IncrementAll(node* current)
 {
-	node* current = head;
 	do { 
 		current->data++;
 		current = current->ref;
@@ -46,9 +45,8 @@ void addFunc(node* head)
 	while (current != NULL);
 }
 
-void Print(node* head)
+void Print(node* current)
 {
-	node* current = head;
 	int i = 0;
 	do {
 		cout << "node " << i++  << ": data = " << current->data << endl;
