@@ -8,6 +8,9 @@ public:
 	node* ref;
 };
 
+void Print(node* head);
+void addFunc(node* head);
+
 int main()
 {
 	node* head = new node;
@@ -25,28 +28,32 @@ int main()
 
 	three->ref = NULL;
 	
+	Print(head);
+	addFunc(head);
+	Print(head);
+
 	system("pause");
 	return 0;
 }
 
 void addFunc(node* head)
 {
-	node* current = new node;
-	current = head;
-	current->data++;
-	cout << current->data;
-	do {current = current->ref; current->data++;}
-	while (current->ref != NULL);
+	node* current = head;
+	do { 
+		current->data++;
+		current = current->ref;
+	}
+	while (current != NULL);
 }
 
 void Print(node* head)
 {
-	node* current = new node;
-	current = head;
-	//node* current = head;
-	int i = 1;
-	cout << "node 1: data = " << current->data << endl;
-	do { i++; current = current->ref; cout << "node " << i << ": data = " << current->data << endl; }
-	while (current->ref != NULL);
-	cout << "end of list";
+	node* current = head;
+	int i = 0;
+	do {
+		cout << "node " << i++  << ": data = " << current->data << endl;
+		current = current->ref;
+	}
+	while (current!= NULL);
+	cout << "end of list" << endl;
 }
